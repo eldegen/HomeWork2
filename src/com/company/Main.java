@@ -4,42 +4,51 @@ import java.util.Random;
 
 public class Main {
 
-    public static void canGoOutside(int age, int temp) {
+    public static String canGoOutside(int age, int temp) {
+        String humanCanGoOutside = "Нет";
+
         if (age >= 20 && age <= 45) {
             if (temp >= -20 && temp <= 30) {
-
-                System.out.println("Можно идти гулять (1 body)");
+                humanCanGoOutside = "Да";
             }
         }
 
         if (age > 0 && age < 20) {
             if (temp >= 0 && temp <= 28) {
-
-                System.out.println("Можно идти гулять (2 body)");
+                humanCanGoOutside = "Да";
             }
         }
 
         if (age > 45) {
             if (temp >= -10 && temp <= 25) {
-
-                System.out.println("Можно идти гулять (3 body)");
+                humanCanGoOutside = "Да";
             }
         }
-
+        return humanCanGoOutside;
     }
 
     public static void main(String[] args) {
-        canGoOutside(31, -11);
-        canGoOutside(25, 30);
-        canGoOutside(18, 7);
-        canGoOutside(46, 23);
-        canGoOutside(63, -10);
-        generateRandomAge();
+        System.out.println("Может ли человек выйти погулять?");
+        System.out.println(canGoOutside(11, -11));
+
+        System.out.println("Может ли человек выйти погулять?");
+        System.out.println(canGoOutside(25, 30));
+
+        System.out.println("Может ли человек выйти погулять?");
+        System.out.println(canGoOutside(18, 7));
+
+        System.out.println("Может ли человек выйти погулять?");
+        System.out.println(canGoOutside(67, 28));
+
+        System.out.println("Может ли человек выйти погулять?");
+        System.out.println(canGoOutside(63, -10));
+
+        System.out.println(generateRandomAge());
     }
 
     // Задание на сообразительность
 
-    public static void generateRandomAge() {
+    public static boolean generateRandomAge() {
         Random random = new Random();
         int minAge = 1;
         int maxAge = 60;
@@ -53,7 +62,8 @@ public class Main {
         System.out.println("temp random: " + randTemp);
 
         System.out.println("Можно ли гулять?: (если строка ниже пуста, значит нет)");
-        canGoOutside(randAge, randTemp);
+
+        return false;
     }
 
 }
